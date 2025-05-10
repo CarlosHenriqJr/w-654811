@@ -1,61 +1,10 @@
 
 import { useState, useRef, useEffect, TouchEvent } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useIsMobile } from "@/hooks/use-mobile";
-
-const projects = [
-  {
-    id: 1,
-    title: "Sistema de Gestão Empresarial",
-    brand: "Creative Generation",
-    description: "Desenvolvimento de um sistema completo para gerenciamento de processos internos, finanças, RH e relacionamento com clientes, com integrações via APIs e dashboards personalizados.",
-    tags: ["ERP", "CRM", "Dashboard", "Integrações API"],
-    imageUrl: "/lovable-uploads/39605e90-8478-4fee-b1b9-cee41df66f10.png",
-    isFeatured: true,
-    link: "/projects/firecat",
-    details: `
-      Esse projeto envolveu a criação de um sistema empresarial completo com módulos integrados para gestão financeira, recursos humanos, estoque, vendas e relacionamento com clientes. A plataforma conta com dashboards personalizados, relatórios avançados e integração com sistemas de terceiros via APIs.
-    `
-  },
-  {
-    id: 2,
-    title: "Aplicativo Mobile de Vendas",
-    brand: "E-commerce Solutions",
-    description: "Aplicativo mobile completo desenvolvido com FlutterFlow para uma empresa de e-commerce, incluindo catálogo de produtos, sistema de pagamentos e gestão de pedidos.",
-    tags: ["FlutterFlow", "E-commerce", "Mobile", "Pagamentos"],
-    imageUrl: "/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png",
-    link: "/projects/sport-retail"
-  },
-  {
-    id: 3,
-    title: "Portal de Atendimento ao Cliente",
-    brand: "Multiservice S.A.",
-    description: "Portal desenvolvido em Bubble para centralizar o atendimento ao cliente, com sistema de tickets, base de conhecimento e chat integrado com agentes de IA.",
-    tags: ["Bubble", "Helpdesk", "Chatbot", "IA"],
-    imageUrl: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png",
-    link: "/projects/workwear"
-  },
-  {
-    id: 4,
-    title: "Sistema de Gestão de Academia",
-    brand: "Fitness Pro",
-    description: "Plataforma web e mobile para gerenciamento de academias e estúdios de fitness, com controle de presença, agendamento de aulas e acompanhamento de resultados.",
-    tags: ["Fitness", "Agendamento", "Mobile", "Web"],
-    imageUrl: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
-    link: "/projects/hockey"
-  },
-  {
-    id: 5,
-    title: "Aplicativo de Gestão Pet",
-    brand: "PetCare Solutions",
-    description: "Aplicativo para clínicas veterinárias e petshops gerenciarem agendamentos, histórico médico dos animais e comunicação com tutores, com lembretes automáticos via notificações.",
-    tags: ["Pet", "Veterinária", "Agendamento", "Mobile"],
-    imageUrl: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png",
-    link: "/projects/pet-tracker"
-  }
-];
+import { projects } from "@/data/projectsData";
+import SectionHeader from "./SectionHeader";
+import ProjectSlide from "./ProjectSlide";
+import CarouselNavigation from "./CarouselNavigation";
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
@@ -126,28 +75,15 @@ const Projects = () => {
     return "scale-90 opacity-0";
   };
   
-  return <section id="projects" ref={projectsRef} className="bg-white py-[50px] w-full">
+  return (
+    <section id="projects" ref={projectsRef} className="bg-white py-[50px] w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className={`text-center mb-10 max-w-3xl mx-auto transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">
-            Customer Cases
-          </div>
-          <h2 className="text-3xl font-bold mb-3">
-            From Textile to Intelligence
-          </h2>
-          <p className="text-gray-600">
-            Explore how our textile sensor technology is revolutionizing multiple industries with intelligent fabric solutions tailored to specific needs.
-          </p>
-          {isMobile && (
-            <div className="flex items-center justify-center mt-4 animate-pulse-slow">
-              <div className="flex items-center text-blue-500">
-                <ChevronLeft size={16} />
-                <p className="text-sm mx-1">Swipe to navigate</p>
-                <ChevronRight size={16} />
-              </div>
-            </div>
-          )}
-        </div>
+        <SectionHeader
+          title="Da Ideia ao Resultado"
+          subtitle="Explore como nossa tecnologia está revolucionando diversos setores com soluções digitais personalizadas para necessidades específicas."
+          badge="Nossos Projetos"
+          showMobileSwipeHint={isMobile}
+        />
         
         <div 
           className="relative h-[550px] overflow-hidden" 
@@ -160,104 +96,25 @@ const Projects = () => {
         >
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             {projects.map((project, index) => (
-              <div 
-                key={project.id} 
-                className={`absolute top-0 w-full max-w-md transform transition-all duration-500 ${getCardAnimationClass(index)}`} 
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                <Card className="overflow-hidden h-[500px] border border-gray-100 shadow-sm hover:shadow-md flex flex-col">
-                  <div 
-                    className="relative bg-black p-6 flex items-center justify-center h-48 overflow-hidden"
-                    style={{
-                      backgroundImage: `url(${project.imageUrl})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-black/50"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center">
-                      <h3 className="text-2xl font-bold text-white mb-2">{project.brand.toUpperCase()}</h3>
-                      <div className="w-12 h-1 bg-white mb-2"></div>
-                      <p className="text-white/90 text-sm">{project.title}</p>
-                    </div>
-                  </div>
-                  
-                  <CardContent className="p-6 flex flex-col flex-grow">
-                    <div className="mb-4">
-                      <h3 className="text-xl font-bold mb-1 text-gray-800 group-hover:text-gray-500 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-500 text-sm font-medium">{project.brand}</p>
-                    </div>
-                    
-                    <p className="text-gray-600 text-sm mb-4 flex-grow">{project.description}</p>
-                    
-                    <div className="mt-auto">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag, idx) => (
-                          <span 
-                            key={idx} 
-                            className="px-2 py-1 bg-gray-50 text-gray-600 rounded-full text-xs animate-pulse-slow" 
-                            style={{ animationDelay: `${idx * 300}ms` }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <Link 
-                        to={project.link} 
-                        className="text-gray-500 flex items-center hover:underline relative overflow-hidden group"
-                        onClick={() => {
-                          if (project.link.startsWith('/')) {
-                            window.scrollTo(0, 0);
-                          }
-                        }}
-                      >
-                        <span className="relative z-10">Learn more</span>
-                        <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
-                        <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gray-500 transition-all duration-300 group-hover:w-full"></span>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-          
-          {!isMobile && (
-            <>
-              <button 
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md transition-all duration-300 hover:scale-110" 
-                onClick={() => setActiveProject(prev => (prev - 1 + projects.length) % projects.length)}
-                aria-label="Previous project"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              
-              <button 
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md transition-all duration-300 hover:scale-110" 
-                onClick={() => setActiveProject(prev => (prev + 1) % projects.length)}
-                aria-label="Next project"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </>
-          )}
-          
-          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
-            {projects.map((_, idx) => (
-              <button 
-                key={idx} 
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${activeProject === idx ? 'bg-gray-500 w-5' : 'bg-gray-200 hover:bg-gray-300'}`} 
-                onClick={() => setActiveProject(idx)}
-                aria-label={`Go to project ${idx + 1}`}
+              <ProjectSlide 
+                key={project.id}
+                project={project}
+                animationClass={getCardAnimationClass(index)}
+                index={index}
               />
             ))}
           </div>
+          
+          <CarouselNavigation
+            totalSlides={projects.length}
+            activeSlide={activeProject}
+            setActiveSlide={setActiveProject}
+            isMobile={isMobile}
+          />
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default Projects;
