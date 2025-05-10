@@ -12,32 +12,32 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'WRLDS',
-  description = 'WRLDS Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring.',
+  title = 'GERAÇÃO CRIATIVA',
+  description = 'Creative Generation: Especialistas em soluções criativas para negócios que buscam se destacar no mercado digital através de sites, aplicativos mobile e sistemas personalizados.',
   type = 'website',
-  name = 'WRLDS Technologies',
-  imageUrl = '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png'
+  name = 'Creative Generation',
+  imageUrl = '/lovable-uploads/5af49ad4-c535-4ac8-8b1d-7ba7469d15df.png'
 }) => {
   const location = useLocation();
-  const currentUrl = `https://wrlds.com${location.pathname}`;
-  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
+  const currentUrl = `https://creativegen.com.br${location.pathname}`;
+  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://creativegen.com.br${imageUrl}`;
 
   // Create JSON-LD structured data
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'WRLDS Technologies',
-    url: 'https://wrlds.com',
-    logo: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
-    description: 'Pioneering smart engineering solutions with textile sensors',
+    name: 'Creative Generation',
+    url: 'https://creativegen.com.br',
+    logo: 'https://creativegen.com.br/lovable-uploads/5af49ad4-c535-4ac8-8b1d-7ba7469d15df.png',
+    description: 'Especialistas em soluções criativas para negócios que buscam se destacar no mercado digital',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'info@wrlds.com'
+      email: 'contato@creativegen.com.br'
     },
     sameAs: [
-      'https://www.linkedin.com/company/wrlds-technologies',
-      'https://twitter.com/wrldstechnologies'
+      'https://www.linkedin.com/company/creative-generation',
+      'https://instagram.com/creativegen'
     ]
   };
 

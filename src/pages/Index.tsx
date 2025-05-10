@@ -10,9 +10,9 @@ const Index = () => {
   return (
     <PageLayout>
       <SEO 
-        title="WRLDS - Smart Textile Technology" 
-        description="WRLDS Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring."
-        imageUrl="/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png"
+        title="GERAÇÃO CRIATIVA - Soluções Digitais Inovadoras" 
+        description="Creative Generation: Especialistas em soluções criativas para negócios que buscam se destacar no mercado digital através de sites, aplicativos mobile e sistemas personalizados."
+        imageUrl="/lovable-uploads/5af49ad4-c535-4ac8-8b1d-7ba7469d15df.png"
       />
       <Hero />
       <Features />
