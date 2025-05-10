@@ -12,8 +12,8 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'GERAÇÃO CRIATIVA',
-  description = 'Creative Generation: Especialistas em soluções criativas para negócios que buscam se destacar no mercado digital através de sites, aplicativos mobile e sistemas personalizados.',
+  title = 'Creative Generation',
+  description = 'Especialistas em soluções criativas para negócios que buscam se destacar no mercado digital através de sites, aplicativos mobile e sistemas personalizados.',
   type = 'website',
   name = 'Creative Generation',
   imageUrl = '/lovable-uploads/5af49ad4-c535-4ac8-8b1d-7ba7469d15df.png'

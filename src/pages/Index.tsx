@@ -10,8 +10,8 @@ const Index = () => {
   return (
     <PageLayout>
       <SEO 
-        title="GERAÇÃO CRIATIVA - Soluções Digitais Inovadoras" 
-        description="Creative Generation: Especialistas em soluções criativas para negócios que buscam se destacar no mercado digital através de sites, aplicativos mobile e sistemas personalizados."
+        title="Creative Generation - Soluções Digitais Inovadoras" 
+        description="Especialistas em soluções criativas para negócios que buscam se destacar no mercado digital através de sites, aplicativos mobile e sistemas personalizados."
         imageUrl="/lovable-uploads/5af49ad4-c535-4ac8-8b1d-7ba7469d15df.png"
       />
       <Hero />

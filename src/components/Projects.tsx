@@ -8,51 +8,51 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const projects = [
   {
     id: 1,
-    title: "6th SENSE Safety System",
-    brand: "FireCat Group",
-    description: "AI-driven sensor solution integrated into uniforms for law enforcement, military and firefighters, providing real-time vital monitoring and situational awareness in high-risk environments.",
-    tags: ["Safety", "Military", "AI Sensors", "Real-time Monitoring"],
-    imageUrl: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png",
+    title: "Sistema de Gestão Empresarial",
+    brand: "Creative Generation",
+    description: "Desenvolvimento de um sistema completo para gerenciamento de processos internos, finanças, RH e relacionamento com clientes, com integrações via APIs e dashboards personalizados.",
+    tags: ["ERP", "CRM", "Dashboard", "Integrações API"],
+    imageUrl: "/lovable-uploads/39605e90-8478-4fee-b1b9-cee41df66f10.png",
     isFeatured: true,
     link: "/projects/firecat",
     details: `
-      FireCat Group aimed to enhance safety in high-risk environments. WRLDS Technologies provided the 6th SENSE solution with secure real-time data transmission, high-quality sensors resistant to extreme conditions, integrated AI-powered clothing, and a centralized control unit. Features include Man Down Alarm, GPS positioning, vital sign monitoring, and Panic Button. Benefits: life-saving technology, machine learning preventing false alarms, durable hardware with 7-10 year lifespan, washable sensors, and Plug & Play installation with 12-20 hours of operation per charge.
+      Esse projeto envolveu a criação de um sistema empresarial completo com módulos integrados para gestão financeira, recursos humanos, estoque, vendas e relacionamento com clientes. A plataforma conta com dashboards personalizados, relatórios avançados e integração com sistemas de terceiros via APIs.
     `
   },
   {
     id: 2,
-    title: "Performance Athletic Footwear",
-    brand: "Global Sports Retail Leader",
-    description: "Smart Footwear R&D aiming to revolutionize development, fitting, and testing of athletic footwear.",
-    tags: ["Sports", "R&D", "Footwear", "Athletic Performance"],
-    imageUrl: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png",
+    title: "Aplicativo Mobile de Vendas",
+    brand: "E-commerce Solutions",
+    description: "Aplicativo mobile completo desenvolvido com FlutterFlow para uma empresa de e-commerce, incluindo catálogo de produtos, sistema de pagamentos e gestão de pedidos.",
+    tags: ["FlutterFlow", "E-commerce", "Mobile", "Pagamentos"],
+    imageUrl: "/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png",
     link: "/projects/sport-retail"
   },
   {
     id: 3,
-    title: "Workwear Climate Control",
-    brand: "European Multinational Textile Producer",
-    description: "Fully integrated temperature controls for professionals working in extreme heat and cold. Modular approach to enable full-body systems.",
-    tags: ["Climate Control", "Workwear", "Temperature Regulation", "Extreme Conditions"],
-    imageUrl: "/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png",
+    title: "Portal de Atendimento ao Cliente",
+    brand: "Multiservice S.A.",
+    description: "Portal desenvolvido em Bubble para centralizar o atendimento ao cliente, com sistema de tickets, base de conhecimento e chat integrado com agentes de IA.",
+    tags: ["Bubble", "Helpdesk", "Chatbot", "IA"],
+    imageUrl: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png",
     link: "/projects/workwear"
   },
   {
     id: 4,
-    title: "Ice Hockey Elite Skill Tracker",
-    brand: "Mars Blades",
-    description: "R&D product evaluating data from single IMU embedded in the hockey shoe. Aim: establish motion patterns that lead to ultimate acceleration, speed, and maneuverability.",
-    tags: ["Ice Hockey", "Motion Analysis", "Performance Tracking", "Sports"],
-    imageUrl: "/lovable-uploads/c30e0487-2fa0-41d1-9a0b-699cb2855388.png",
+    title: "Sistema de Gestão de Academia",
+    brand: "Fitness Pro",
+    description: "Plataforma web e mobile para gerenciamento de academias e estúdios de fitness, com controle de presença, agendamento de aulas e acompanhamento de resultados.",
+    tags: ["Fitness", "Agendamento", "Mobile", "Web"],
+    imageUrl: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
     link: "/projects/hockey"
   },
   {
     id: 5,
-    title: "Dog Activity Counter",
-    brand: "UK Insurance Giant",
-    description: "R&D project embedding a step counter in a dog collar. Measures daily activity and sends real-time data to the cloud for veterinary consultancies.",
-    tags: ["Pet Technology", "Insurance", "Activity Tracking", "R&D"],
-    imageUrl: "/lovable-uploads/d5ce901e-2ce0-4f2a-bce1-f0ca5d6192df.png",
+    title: "Aplicativo de Gestão Pet",
+    brand: "PetCare Solutions",
+    description: "Aplicativo para clínicas veterinárias e petshops gerenciarem agendamentos, histórico médico dos animais e comunicação com tutores, com lembretes automáticos via notificações.",
+    tags: ["Pet", "Veterinária", "Agendamento", "Mobile"],
+    imageUrl: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png",
     link: "/projects/pet-tracker"
   }
 ];
