@@ -1,154 +1,155 @@
-
-import { ArrowLeft, ArrowRight, FileText, Code, Cpu } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, FileText, Code, Cpu, Database, Cloud, Smartphone, Shield, Zap, Brain } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import ProductPlatform from '@/components/ProductPlatform';
-import { useIsMobile } from '@/hooks/use-mobile';
+import ProductPlatform from "@/components/ProductPlatform"; // Este componente pode precisar de revisão ou substituição
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Card, CardContent } from "@/components/ui/card";
-import { useState, useEffect } from 'react';
-import PageLayout from '@/components/PageLayout';
+import { useState, useEffect } from "react";
+import PageLayout from "@/components/PageLayout";
 
 const TechDetails = () => {
   const isMobile = useIsMobile();
-  const [progressValue, setProgressValue] = useState(0);
 
-  // Animate progress bar on component mount
-  useEffect(() => {
-    const timer = setTimeout(() => setProgressValue(100), 100);
-    return () => clearTimeout(timer);
-  }, []);
-  
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
+  const techPillars = [
+    {
+      title: "Desenvolvimento Full-Stack",
+      icon: <Code className="w-7 h-7 text-orange-500" />,
+      description: "Dominamos o ciclo completo de desenvolvimento, do frontend ao backend, utilizando tecnologias modernas como React, Node.js, Python e bancos de dados relacionais e NoSQL."
+    },
+    {
+      title: "Soluções em Nuvem (Cloud)",
+      icon: <Cloud className="w-7 h-7 text-orange-500" />,
+      description: "Projetamos e implementamos arquiteturas em nuvem escaláveis e seguras (AWS, Azure, Google Cloud), garantindo alta disponibilidade e otimização de custos para suas aplicações."
+    },
+    {
+      title: "Aplicativos Mobile Híbridos e Nativos",
+      icon: <Smartphone className="w-7 h-7 text-orange-500" />,
+      description: "Criamos aplicativos móveis para iOS e Android, utilizando frameworks como FlutterFlow para desenvolvimento ágil e tecnologias nativas para performance máxima."
+    },
+    {
+      title: "Inteligência Artificial e Machine Learning",
+      icon: <Brain className="w-7 h-7 text-orange-500" />,
+      description: "Aplicamos IA e Machine Learning para criar soluções inteligentes, desde chatbots e sistemas de recomendação até análise preditiva e automação de processos complexos."
+    },
+    {
+      title: "Plataformas No-Code e Low-Code",
+      icon: <Zap className="w-7 h-7 text-orange-500" />,
+      description: "Utilizamos ferramentas como Bubble e N8N para acelerar o desenvolvimento de MVPs, automações e sistemas internos, entregando valor de forma rápida e eficiente."
+    },
+    {
+      title: "Segurança e Performance",
+      icon: <Shield className="w-7 h-7 text-orange-500" />,
+      description: "Priorizamos a segurança em todas as camadas da aplicação e otimizamos a performance para garantir uma experiência de usuário fluida e confiável."
+    }
+  ];
+
   return (
     <PageLayout>
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="container mx-auto">
-          <div className="max-w-6xl mx-auto">
-            <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6 transition-colors">
+          <div className="max-w-5xl mx-auto">
+            <Link to="/" className="inline-flex items-center text-gray-500 hover:text-orange-600 mb-8 transition-colors">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
+              Voltar para o Início
             </Link>
             
-            <motion.h1 initial={{
-            opacity: 0,
-            y: -10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5
-          }} className="text-3xl sm:text-4xl font-bold mb-6">
-              Technical Deep Dive
+            <motion.h1 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
+            >
+              Nossas Capacidades Tecnológicas
             </motion.h1>
             
-            <div className="prose prose-lg max-w-none">
-              <motion.p initial={{
-              opacity: 0
-            }} animate={{
-              opacity: 1
-            }} transition={{
-              duration: 0.5,
-              delay: 0.2
-            }} className="text-base sm:text-lg text-gray-600 mb-12">
-                Explore the technical details behind our smart textile sensor technology and learn how our system architecture enables rapid development and deployment.
-              </motion.p>
-              
-              {/* System Architecture Section */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.6
-            }} className="mb-16">
-                <div className="flex items-center gap-2 mb-4">
-                  <FileText className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">System Architecture</h2>
-                </div>
-                
-                <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  Our platform uses a three-tier architecture connecting physical devices to our cloud services and user applications. 
-                  The diagram below illustrates how data flows through our system, from sensor collection to user-facing applications.
-                </p>
+            <motion.p 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-xl text-gray-700 mb-12 leading-relaxed"
+            >
+              Na Creative Generation, combinamos expertise técnica com uma visão inovadora para construir soluções digitais que impulsionam o seu negócio. Explore como nossa stack tecnológica e nossa abordagem nos permitem entregar projetos de alta qualidade e impacto.
+            </motion.p>
 
-                {/* Progress bar showing flow */}
-                <div className="w-full mb-6">
-                  
-                  
-                </div>
-                
-                {/* Product Platform Architecture Diagram */}
-                <Card className="bg-white rounded-lg mb-10 border border-gray-200 shadow-sm">
-                  <CardContent className="p-4 lg:p-6">
-                    <ProductPlatform />
-                  </CardContent>
-                </Card>
-              </motion.div>
+            {/* Seção de Pilares Tecnológicos */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-16"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <Cpu className="w-8 h-8 text-orange-500" />
+                <h2 className="text-3xl font-bold text-gray-900">Nossos Pilares Tecnológicos</h2>
+              </div>
               
-              {/* Our Approach Section */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.6,
-              delay: 0.2
-            }}>
-                <div className="flex items-center gap-2 mb-4">
-                  <Code className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">Our Approach</h2>
-                </div>
-                
-                <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  At WRLDS, we've developed a systematic approach to creating smart textile solutions that combines technical innovation with practical implementation. 
-                  Our comprehensive development process ensures that every project moves efficiently from concept to market-ready product.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                  {[{
-                  title: "Discovery",
-                  icon: <Cpu className="w-5 h-5 text-gray-700" />,
-                  description: "We begin with thorough market research and requirements gathering to understand your specific needs and opportunities."
-                }, {
-                  title: "Design & Prototyping",
-                  icon: <Code className="w-5 h-5 text-gray-700" />,
-                  description: "Our teams create initial designs and functional prototypes that allow for early testing and iteration."
-                }, {
-                  title: "Development & Testing",
-                  icon: <FileText className="w-5 h-5 text-gray-700" />,
-                  description: "We rigorously develop and test all components to ensure they meet performance and reliability standards."
-                }].map((phase, i) => <motion.div key={phase.title} initial={{
-                  opacity: 0,
-                  y: 10
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.4,
-                  delay: 0.3 + i * 0.1
-                }} className="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300">
-                      <div className="flex items-center gap-2 mb-3">
-                        {phase.icon}
-                        <h3 className="font-semibold text-lg">{phase.title}</h3>
-                      </div>
-                      <p className="text-gray-600 text-base">{phase.description}</p>
-                    </motion.div>)}
-                </div>
-              </motion.div>
-            </div>
+              <p className="text-gray-700 mb-10 text-lg max-w-4xl">
+                Nossa abordagem é fundamentada em um conjunto de tecnologias e práticas que nos permitem criar desde aplicações web robustas e aplicativos móveis intuitivos até complexos sistemas de inteligência artificial e automação de processos.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {techPillars.map((pillar, i) => (
+                  <motion.div 
+                    key={pillar.title} 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+                    className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 flex flex-col"
+                  >
+                    <div className="flex items-center mb-4">
+                      {pillar.icon}
+                      <h3 className="font-semibold text-xl ml-3 text-gray-900">{pillar.title}</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed flex-grow">{pillar.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
             
-            <div className="mt-16 pt-8 border-t border-gray-200">
-              <Link to="/development-process" className="inline-flex items-center px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group">
-                Explore Our Development Process
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {/* Seção Arquitetura de Soluções (Exemplo Genérico) */}
+            {/* O componente ProductPlatform pode precisar ser substituído ou adaptado */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mb-16"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <FileText className="w-8 h-8 text-orange-500" />
+                <h2 className="text-3xl font-bold text-gray-900">Arquitetura de Nossas Soluções</h2>
+              </div>
+              
+              <p className="text-gray-700 mb-8 text-lg max-w-4xl">
+                Projetamos arquiteturas flexíveis e escaláveis, adaptadas às necessidades de cada projeto. Geralmente, nossas soluções seguem um modelo de microsserviços ou arquiteturas modulares, facilitando a manutenção, evolução e integração com outros sistemas.
+              </p>
+
+              <Card className="bg-white rounded-xl mb-10 border border-gray-200 shadow-lg overflow-hidden">
+                <CardContent className="p-6 lg:p-8">
+                  {/* Substituir ProductPlatform por um diagrama/imagem mais genérico de arquitetura de software ou remover se não aplicável */}
+                  {/* <ProductPlatform /> */}
+                  <div className="text-center py-10">
+                    <img src="/img/software-architecture-example.svg" alt="Exemplo de Arquitetura de Software" className="max-w-full h-auto mx-auto" />
+                    <p className="text-sm text-gray-500 mt-4">Diagrama ilustrativo de uma arquitetura de software moderna.</p>
+                  </div>
+                </CardContent>
+              </Card>
+              <p className="text-gray-600 text-base">
+                Utilizamos as melhores práticas de DevOps para automação de deploy, monitoramento contínuo e entrega de valor de forma ágil e segura.
+              </p>
+            </motion.div>
+
+            <div className="mt-16 pt-10 border-t border-gray-300 text-center">
+              <Link 
+                to="/development-process" 
+                className="inline-flex items-center px-8 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all group shadow-md hover:shadow-lg text-base font-medium"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                Conheça Nosso Processo de Desenvolvimento
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -159,3 +160,4 @@ const TechDetails = () => {
 };
 
 export default TechDetails;
+

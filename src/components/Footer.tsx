@@ -1,4 +1,3 @@
-
 import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -15,8 +14,8 @@ const Footer = () => {
     
     if (!email) {
       toast({
-        title: "Error",
-        description: "Please enter your email address.",
+        title: "Erro",
+        description: "Por favor, insira seu endereço de e-mail.",
         variant: "destructive"
       });
       return;
@@ -25,16 +24,16 @@ const Footer = () => {
     setIsSubmitting(true);
     
     try {
-      // EmailJS configuration
+      // Configuração do EmailJS (Manter os IDs do usuário, se fornecidos)
       const EMAILJS_SERVICE_ID = "service_i3h66xg";
       const EMAILJS_TEMPLATE_ID = "template_fgq53nh";
       const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
       
       const templateParams = {
-        from_name: "Website Subscriber",
+        from_name: "Inscrito no Site",
         from_email: email,
-        message: `New subscription request from the website footer.`,
-        to_name: 'WRLDS Team',
+        message: `Nova solicitação de inscrição vinda do rodapé do site.`,
+        to_name: 'Equipe Creative Generation',
         reply_to: email
       };
       
@@ -46,18 +45,18 @@ const Footer = () => {
       );
       
       toast({
-        title: "Success!",
-        description: "Thank you for subscribing to our newsletter.",
+        title: "Sucesso!",
+        description: "Obrigado por se inscrever em nossa newsletter.",
         variant: "default"
       });
       
       setEmail("");
     } catch (error) {
-      console.error("Error sending subscription:", error);
+      console.error("Erro ao enviar inscrição:", error);
       
       toast({
-        title: "Error",
-        description: "There was a problem subscribing. Please try again later.",
+        title: "Erro",
+        description: "Houve um problema com a sua inscrição. Por favor, tente novamente mais tarde.",
         variant: "destructive"
       });
     } finally {
@@ -71,45 +70,47 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
           <div className="lg:col-span-2">
             <img 
-              src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
-              alt="WRLDS Technologies Logo" 
-              className="h-10 w-auto mb-6 invert" // Added invert to make logo white
+              src="/img/logo.png" 
+              alt="Creative Generation Logo" 
+              className="h-12 w-auto mb-6 brightness-0 invert" // Mantido invert para garantir visibilidade em fundo escuro, ajustar se necessário
             />
             <p className="text-gray-300 mb-6">
-              WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
+              A Creative Generation é especialista em transformar ideias em experiências digitais memoráveis. Criamos sites, aplicativos mobile e sistemas personalizados para negócios que buscam destaque no mercado digital.
             </p>
+            {/* Manter endereço genérico ou solicitar ao usuário um endereço específico */}
             <p className="text-gray-300 mb-6">
-              Hornsgatan 110<br />
-              117 26, Stockholm Sweden
+              Escritório Principal<br />
+              Brasil
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://www.linkedin.com/company/wrldstechnologies/" 
+                href="#" // Substituir pelo link real do LinkedIn da Creative Generation
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
               >
                 <Linkedin size={20} />
               </a>
+              {/* Adicionar mais links de redes sociais se necessário */}
             </div>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Company</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Empresa</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">Sobre Nós</Link></li>
+              {/* Link para Careers removido */}
+              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Política de Privacidade</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Get in Touch</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Entre em Contato</h3>
             <form className="space-y-4" onSubmit={handleSubscribe}>
               <div>
                 <input 
                   type="email" 
-                  placeholder="Your email" 
+                  placeholder="Seu e-mail" 
                   className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-white placeholder-gray-400"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -118,26 +119,28 @@ const Footer = () => {
               </div>
               <button 
                 type="submit" 
-                className="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Subscribing..." : (
+                {isSubmitting ? "Inscrevendo..." : (
                   <>
-                    Subscribe
+                    Inscrever-se
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </>
                 )}
               </button>
             </form>
+            <p className="text-xs text-gray-400 mt-4">Ao se inscrever, você concorda com nossa <Link to="/privacy-policy" className="underline hover:text-white">Política de Privacidade</Link>.</p>
           </div>
         </div>
         
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} WRLDS Technologies. All rights reserved.
+            © {new Date().getFullYear()} Creative Generation. Todos os direitos reservados.
           </p>
           <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Política de Privacidade</Link>
+            {/* Adicionar outros links úteis, como Termos de Serviço, se aplicável */}
           </div>
         </div>
       </div>
@@ -146,3 +149,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Layers, BarChart, AlertTriangle, Clock4, Rocket, Zap, Sparkles, ArrowRight, Award, Target, Shield, ChartBar } from "lucide-react";
+import { Layers, BarChart, AlertTriangle, Clock4, Rocket, Zap, Sparkles, ArrowRight, Award, Target, Shield, ChartBar } from "lucide-react"; 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
@@ -79,120 +79,65 @@ const WhyWrlds = () => {
       }
     }
   };
-  return <section id="why-wrlds" className="relative py-16 md:py-24 bg-white overflow-hidden">
+
+  const whyCreativeGenerationText = "Na Creative Generation, não apenas construímos produtos digitais; nós tecemos sonhos em realidade digital. Escolher-nos é optar por uma parceria onde a criatividade encontra a estratégia, e a inovação é a bússola que guia cada projeto. Somos os artesãos da sua visão, dedicados a criar experiências que não só encantam, mas que também impulsionam o seu negócio a novos horizontes. Com uma equipe que respira tecnologia e design, e uma paixão por transformar o complexo em soluções elegantes e eficazes, garantimos que sua marca não apenas participe do futuro digital, mas o defina. Porque para nós, cada clique, cada interação, é uma oportunidade de contar a sua história de uma forma única e memorável.";
+
+  return (
+    <section id="why-creative-generation" className="relative py-16 md:py-24 bg-white overflow-hidden">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-12 md:mb-16" initial="hidden" whileInView="visible" viewport={{
-        once: true,
-        margin: "-100px"
-      }} variants={containerVariants}>
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-            Why WRLDS?
+        <motion.div 
+          className="text-center mb-12 md:mb-16" 
+          initial="hidden" 
+          whileInView="visible" 
+          viewport={{ once: true, margin: "-100px" }} 
+          variants={containerVariants}
+        >
+          <motion.h2 
+            variants={itemVariants} 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3"
+          >
+            Por que escolher a Creative Generation?
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-gray-600 text-lg max-w-3xl mx-auto">
-            In an industry where complexity leads to failure, we bring simplicity and expertise to ensure your success
+          <motion.p 
+            variants={itemVariants} 
+            className="text-gray-600 text-lg max-w-3xl mx-auto"
+          >
+            {whyCreativeGenerationText}
           </motion.p>
         </motion.div>
         
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" initial="hidden" whileInView="visible" viewport={{
-        once: true,
-        margin: "-100px"
-      }} variants={containerVariants}>
-          <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
-            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
-              <BarChart className="w-8 h-8 text-gray-700" />
-            </div>
-            <h3 className="text-gray-900 text-2xl lg:text-3xl font-bold mb-3">
-              <AnimatedCounter end={3.8} decimals={1} suffix=" Billion" /> USD
-            </h3>
-            <p className="text-gray-700">Market estimated to reach this value by 2030, with massive growth potential for smart textile solutions</p>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
-            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
-              <AlertTriangle className="w-8 h-8 text-gray-700" />
-            </div>
-            <h3 className="text-gray-900 text-2xl lg:text-3xl font-bold mb-3">
-              <AnimatedCounter end={60} suffix="%" /> 
-            </h3>
-            <p className="text-gray-700">
-              of IoT projects stall at the proof-of-concept stage due to fragmented expertise and poor coordination
-            </p>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
-            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
-              <Clock4 className="w-8 h-8 text-gray-700" />
-            </div>
-            <h3 className="text-gray-900 text-2xl lg:text-3xl font-bold mb-3">
-              <AnimatedCounter end={80} suffix="%" />
-            </h3>
-            <p className="text-gray-700">
-              Increase in time-to-market for IoT products over the past four years, creating costly delays
-            </p>
-          </motion.div>
-        </motion.div>
-        
-        <motion.div className="mb-12" initial="hidden" whileInView="visible" viewport={{
-          once: true,
-          margin: "-100px"
-        }} variants={containerVariants}>
+        <motion.div 
+          className="mb-12" 
+          initial="hidden" 
+          whileInView="visible" 
+          viewport={{ once: true, margin: "-100px" }} 
+          variants={containerVariants}
+        >
           <motion.div variants={itemVariants} className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-              What WRLDS Does for You
+              O que a Creative Generation faz por Você?
             </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We transform your ideas into market-ready solutions with tangible benefits for your business
-            </p>
           </motion.div>
           
-          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <div className="flex items-start">
-                <div className="bg-gray-200 rounded-full p-3 mr-4">
-                  <BarChart className="w-6 h-6 text-gray-700" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">New Revenue Products</h4>
-                  <p className="text-gray-700">Create high-margin, sensor-enabled products for new revenue streams.</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <div className="flex items-start">
-                <div className="bg-gray-200 rounded-full p-3 mr-4">
-                  <Sparkles className="w-6 h-6 text-gray-700" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Innovation That Attracts</h4>
-                  <p className="text-gray-700">Break through to dream clients with tech that makes you stand out.</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <div className="flex items-start">
-                <div className="bg-gray-200 rounded-full p-3 mr-4">
-                  <Zap className="w-6 h-6 text-gray-700" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Comfort-Zone Development</h4>
-                  <p className="text-gray-700">We develop frontier tech while you stay in your comfort zone.</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <div className="flex items-start">
-                <div className="bg-gray-200 rounded-full p-3 mr-4">
-                  <Rocket className="w-6 h-6 text-gray-700" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Brand-Building Leaps</h4>
-                  <p className="text-gray-700">We enable hardware/software leaps that define your brand's future.</p>
-                </div>
-              </div>
-            </motion.div>
+          <motion.div 
+            variants={itemVariants} 
+            className="text-gray-700 max-w-3xl mx-auto text-lg"
+          >
+            <p className="mb-4">
+              A Creative Generation é uma empresa especializada em soluções criativas para negócios que buscam se destacar no mercado digital. Fundada em 2020, nossa missão é transformar ideias em experiências digitais memoráveis através de sites, aplicativos mobile e sistemas personalizados.
+            </p>
+            <p className="mb-4">
+              Nossa equipe é formada por profissionais apaixonados por design, tecnologia e inovação, com expertise em:
+            </p>
+            <ul className="list-disc list-inside mb-4 pl-4 space-y-2">
+              <li>Desenvolvimento web</li>
+              <li>Criação de aplicativos com FlutterFlow {/* TODO: Adicionar logo FlutterFlow */}</li>
+              <li>Soluções no-code com Bubble {/* TODO: Adicionar logo Bubble */}</li>
+              <li>Automação de processos com agentes de IA e N8N {/* TODO: Adicionar logo N8N */}</li>
+            </ul>
+            <p>
+              Acreditamos que cada projeto é único e merece uma abordagem personalizada.
+            </p>
           </motion.div>
           
           <motion.div variants={itemVariants} className="text-center mt-10">
@@ -201,13 +146,15 @@ const WhyWrlds = () => {
               onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group"
             >
-              Learn more about our structured development process
+              Saiba mais sobre nosso processo de desenvolvimento estruturado
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default WhyWrlds;
+
